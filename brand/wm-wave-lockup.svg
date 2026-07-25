@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 640" width="940" height="640">
+  <!-- Full lockup: wave mark + wordmark, dark background. -->
+  <rect width="940" height="640" fill="#0B0B0C"/>
+  <g transform="translate(0,30)">
+    <path d="M 40 90 L 155 330 L 260 150 L 365 330 L 436.3 168.8"
+          fill="none" stroke="#F2EDE3" stroke-width="46"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 411 226 L 480 70 L 595 230 L 710 70 L 850 330"
+          fill="none" stroke="#D4AF37" stroke-width="46"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="470" y="510" text-anchor="middle"
+        font-family="'Montserrat','Segoe UI',Arial,sans-serif" font-weight="700"
+        font-size="64" letter-spacing="14" fill="#F2EDE3">WHITTY</text>
+  <text x="470" y="580" text-anchor="middle"
+        font-family="'Montserrat','Segoe UI',Arial,sans-serif" font-weight="400"
+        font-size="40" letter-spacing="22" fill="#D4AF37">MEDIA</text>
+</svg>
