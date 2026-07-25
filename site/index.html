@@ -94,20 +94,8 @@
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px}
   .hero-note{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em}
 
-  /* ---------- signature: the callwave ---------- */
-  .callwave{display:block;width:100%;height:96px;margin:34px 0 0}
-  .callwave path{fill:none;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
-  .cw-flat{stroke:rgba(156,150,138,.4)}
-  .cw-w{stroke:var(--gold)}
-  .cw-m{stroke:var(--champagne)}
-  @media (prefers-reduced-motion:no-preference){
-    .cw-w,.cw-m{stroke-dasharray:900;stroke-dashoffset:900;animation:cwdraw 1.6s ease-out .3s forwards}
-    .cw-m{animation-delay:.7s}
-    @keyframes cwdraw{to{stroke-dashoffset:0}}
-  }
-
   /* ---------- stat bar ---------- */
-  .stats{border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);margin-top:0}
+  .stats{border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);margin-top:72px}
   .stats-inner{
     display:grid;grid-template-columns:repeat(4,1fr);
   }
@@ -291,13 +279,6 @@
     </div>
     <span class="hero-note">Built for installers scaling past $50k/month. No contracts to start.</span>
   </div>
-
-  <!-- signature: missed-call flatline breaks into the W→M wave -->
-  <svg class="callwave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
-    <path class="cw-flat" d="M 0 78 L 470 78"/>
-    <path class="cw-w" d="M 470 60 L 512 90 L 548 68 L 584 90 L 626 60"/>
-    <path class="cw-m" d="M 648 90 L 690 60 L 726 82 L 762 60 L 804 90 L 900 74 L 1010 82 L 1130 70 L 1270 78 L 1440 74"/>
-  </svg>
 </section>
 
 <!-- ============ STAT BAR ============ -->
