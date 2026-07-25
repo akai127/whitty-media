@@ -1,0 +1,7 @@
+# Business-sensitive research and lead data — never publish
+research/
+florida-solar-prospects/
+
+# Local tooling (references local paths / API env)
+brand/generate_logos.py
+brand/logo_prompts.json

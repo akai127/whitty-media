@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!--
+    Whitty Media mark — rotational ambigram construction.
+    The M is the W rotated exactly 180° about the center (VW-interlock logic):
+    the W's two bottom vertices ARE the M's two top peaks, at the horizontal
+    midline. Single flat gold, uniform stroke, thin containing ring.
+  -->
+  <circle cx="256" cy="256" r="248" fill="#0A0A0B"/>
+  <circle cx="256" cy="256" r="230" fill="none" stroke="#C9A227" stroke-width="12"/>
+
+  <!-- W (upper half) -->
+  <path d="M 130 92 L 190 246 L 256 114 L 322 246 L 382 92"
+        fill="none" stroke="#C9A227" stroke-width="28"
+        stroke-linecap="butt" stroke-linejoin="miter"/>
+
+  <!-- M (lower half) = the W path rotated 180° about (256,256);
+       the 20px midline gap is the brand's "break in the middle" -->
+  <path d="M 382 420 L 322 266 L 256 398 L 190 266 L 130 420"
+        fill="none" stroke="#C9A227" stroke-width="28"
+        stroke-linecap="butt" stroke-linejoin="miter"/>
+</svg>
