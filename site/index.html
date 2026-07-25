@@ -78,6 +78,34 @@
 
   /* ---------- hero ---------- */
   .hero{padding:88px 0 0}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+
+  /* example-call transcript card */
+  .callcard{
+    background:var(--panel);border:1px solid rgba(212,175,55,.16);border-radius:10px;
+    padding:22px;max-width:430px;width:100%;justify-self:end;
+    box-shadow:0 18px 60px rgba(0,0,0,.5);
+  }
+  .callcard-head{
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+    border-bottom:1px solid rgba(156,150,138,.15);padding-bottom:14px;margin-bottom:16px;
+  }
+  .callcard-title{font-weight:600;font-size:14.5px;color:var(--body)}
+  .callcard-title span{display:block;font-family:var(--mono);font-weight:400;font-size:11px;color:var(--muted);margin-top:3px;letter-spacing:.05em}
+  .chip{font-family:var(--mono);font-size:11px;color:#151102;background:var(--gold);border-radius:999px;padding:4px 10px;white-space:nowrap}
+  .bubble{max-width:86%;padding:10px 14px;border-radius:12px;font-size:13.5px;line-height:1.5;margin-bottom:10px}
+  .bubble.ai{background:#1E1D19;color:var(--body);border-bottom-left-radius:4px}
+  .bubble.caller{background:rgba(212,175,55,.14);color:var(--champagne);margin-left:auto;border-bottom-right-radius:4px}
+  .bubble .who{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  .callcard-toast{
+    display:flex;gap:10px;align-items:center;
+    background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.35);border-radius:8px;
+    padding:10px 14px;margin-top:14px;font-size:13.5px;color:var(--gold-light);font-weight:600;
+  }
+  .callcard-note{font-family:var(--mono);font-size:10.5px;color:rgba(156,150,138,.6);margin-top:10px;text-align:right;letter-spacing:.06em}
+
+  /* anything gated behind the CONTENT config */
+  [hidden]{display:none !important}
   .eyebrow{
     font-family:var(--mono);font-size:12.5px;letter-spacing:.24em;
     color:var(--gold);text-transform:uppercase;display:block;margin-bottom:22px;
@@ -138,7 +166,20 @@
   .sys-row h3 span{display:block;font-family:var(--mono);font-weight:400;font-size:12px;color:var(--gold);letter-spacing:.18em;margin-top:6px;text-transform:uppercase}
   .sys-row p{color:var(--muted);font-size:16px}
 
+  /* founder note (hidden until CONTENT.founderPhotoSrc is set) */
+  .founder{
+    display:flex;gap:40px;align-items:center;max-width:840px;margin:0 auto;
+    background:var(--panel);border:1px solid rgba(212,175,55,.12);border-radius:10px;padding:44px;
+  }
+  .founder img{width:150px;height:150px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex:none}
+  .founder h3{font-family:var(--display);font-weight:500;font-size:24px;color:#F5F2E9;margin-bottom:12px}
+  .founder p{color:var(--muted);font-size:16px}
+  .founder .sig{font-family:var(--display);font-style:italic;color:var(--gold);font-size:20px;margin-top:14px}
+
   /* demo */
+  .demo-audio{flex-basis:100%;margin-top:6px}
+  .demo-audio audio{width:100%}
+  .demo-audio p{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:8px;letter-spacing:.05em}
   .demo-box{
     border:1px solid var(--gold-deep);border-radius:8px;
     padding:52px 44px;display:flex;flex-wrap:wrap;gap:32px;align-items:center;
@@ -225,6 +266,9 @@
 
   /* ---------- responsive ---------- */
   @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .callcard{justify-self:start}
+    .founder{flex-direction:column;text-align:center;padding:34px 26px}
     .stats-inner{grid-template-columns:repeat(2,1fr)}
     .stat{border-left:none;border-top:1px solid var(--hairline)}
     .stat:nth-child(-n+2){border-top:none}
@@ -269,15 +313,33 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" aria-labelledby="hero-h">
-  <div class="wrap">
-    <span class="eyebrow">For solar installers · AI call systems</span>
-    <h1 id="hero-h">Your next ten installs are <em>calling.</em><br>Is anyone answering?</h1>
-    <p class="hero-sub">Whitty Media installs an <strong>AI receptionist and outbound calling system</strong> built for solar companies. It answers every lead in seconds, qualifies the homeowner, and books the consultation straight into your calendar — <strong>24 hours a day, 7 days a week.</strong></p>
-    <div class="hero-ctas">
-      <a class="btn btn-gold" href="#book">Book Your Free Strategy Call</a>
-      <a class="btn btn-ghost" href="#demo">Hear the AI Live</a>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">For solar installers · AI call systems</span>
+      <h1 id="hero-h">Your next ten installs are <em>calling.</em><br>Is anyone answering?</h1>
+      <p class="hero-sub">Whitty Media installs an <strong>AI receptionist and outbound calling system</strong> built for solar companies. It answers every lead in seconds, qualifies the homeowner, and books the consultation straight into your calendar — <strong>24 hours a day, 7 days a week.</strong></p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="#book">Book Your Free Strategy Call</a>
+        <a class="btn btn-ghost" href="#demo">Hear the AI Live</a>
+      </div>
+      <span class="hero-note">Built for installers scaling past $50k/month. No contracts to start.</span>
     </div>
-    <span class="hero-note">Built for installers scaling past $50k/month. No contracts to start.</span>
+
+    <aside class="callcard" aria-label="Example of an AI-handled call">
+      <div class="callcard-head">
+        <div class="callcard-title">Inbound call · 9:42 PM
+          <span>New lead — Facebook quote form</span>
+        </div>
+        <span class="chip">Answered in 0.8s</span>
+      </div>
+      <div class="bubble ai"><span class="who">AI Receptionist</span>Thanks for calling Sun Coast Solar, this is Ava. Are you calling about the quote request you just sent over?</div>
+      <div class="bubble caller"><span class="who">Homeowner</span>Yeah — I wanted to see what my electric bill would look like with panels.</div>
+      <div class="bubble ai"><span class="who">AI Receptionist</span>Happy to help with that. Roughly what's your monthly bill with FPL right now?</div>
+      <div class="bubble caller"><span class="who">Homeowner</span>Usually around $280 in summer.</div>
+      <div class="bubble ai"><span class="who">AI Receptionist</span>That's exactly the range solar makes sense for. I have Tuesday at 6:15 PM open for a free consultation — does that work?</div>
+      <div class="callcard-toast">✓ Appointment booked — Tue 6:15 PM · synced to calendar</div>
+      <div class="callcard-note">EXAMPLE CONVERSATION</div>
+    </aside>
   </div>
 </section>
 
@@ -373,9 +435,15 @@
         <p>Don't take our word that it sounds human — hear it handle a real solar conversation. Request a live demo and our AI will call you and walk you through exactly what your customers would experience.</p>
       </div>
       <div class="demo-cta">
-        <!-- TODO for Preston: once your demo line is live, replace this mailto with:
-             <a class="btn btn-gold" href="tel:+1XXXXXXXXXX">Call the AI: (XXX) XXX-XXXX</a> -->
-        <a class="btn btn-gold" href="mailto:prestonmwaia@gmail.com?subject=Live%20AI%20demo%20request&body=Hi%20Preston%2C%20I%27d%20like%20to%20hear%20the%20AI%20in%20action.%20My%20name%20and%20number%3A%20">Request a Live Demo Call</a>
+        <!-- The tel: button appears automatically when CONTENT.demoPhoneNumber is set;
+             the mailto fallback hides itself at the same time. -->
+        <a class="btn btn-gold" id="demo-tel" href="#" hidden>Call the AI now</a>
+        <a class="btn btn-gold" id="demo-mailto" href="mailto:prestonmwaia@gmail.com?subject=Live%20AI%20demo%20request&body=Hi%20Preston%2C%20I%27d%20like%20to%20hear%20the%20AI%20in%20action.%20My%20name%20and%20number%3A%20">Request a Live Demo Call</a>
+      </div>
+      <div class="demo-audio" id="demo-audio" hidden>
+        <!-- Appears when CONTENT.demoAudioSrc is set (e.g. a real recorded AI call). -->
+        <audio controls preload="none" id="demo-audio-player"></audio>
+        <p>A real call handled end-to-end by the AI — recorded with permission.</p>
       </div>
     </div>
   </div>
@@ -415,6 +483,31 @@
       <span class="eyebrow">Our commitment</span>
       <h2 id="guarantee-h">10+ qualified appointments in your first 90 days — <em>or we keep working free</em> until you get them.</h2>
       <p>We win when qualified homeowners sit appointments on your calendar. If the system doesn't produce, the cost of fixing it is ours, not yours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASE STUDIES (hidden until CONTENT.caseStudies has entries) ============ -->
+<section id="proof" aria-labelledby="proof-h" hidden>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Results</span>
+      <h2 id="proof-h">Installers we've put back on the <em>phones.</em></h2>
+    </div>
+    <div class="cards" id="case-grid"></div>
+  </div>
+</section>
+
+<!-- ============ FOUNDER (hidden until CONTENT.founderPhotoSrc is set) ============ -->
+<section id="founder" aria-labelledby="founder-h" hidden>
+  <div class="wrap">
+    <div class="founder">
+      <img id="founder-photo" src="" alt="Preston Whitty, founder of Whitty Media">
+      <div>
+        <h3 id="founder-h">The person behind the system.</h3>
+        <p>I'm Preston Whitty. I build AI call systems exclusively for solar companies — because the installers doing the best work are usually the ones losing the most deals to an unanswered phone. I keep my client list small so every build gets my full attention, and my own number is on this page. Call it — see who answers.</p>
+        <p class="sig">— Preston</p>
+      </div>
     </div>
   </div>
 </section>
@@ -495,13 +588,14 @@
     <h2 id="book-h">Every day you wait is another install on <em>someone else's</em> truck.</h2>
     <p class="book-sub">Book a free 30-minute strategy call. We'll map your lead flow, show you where deals are leaking, and tell you honestly whether the system fits your business.</p>
 
-    <!-- TODO for Preston: replace the block below with your GoHighLevel calendar embed code
-         (Settings → Calendars → Embed). Use ONE embed, and set the calendar's accent color
-         to #D4AF37 in GHL so it matches the page instead of stock blue. -->
-    <div class="calendar-slot">
+    <!-- When CONTENT.ghlCalendarUrl is set, the GHL calendar embeds right here and the
+         fallback button hides. In GHL: Settings → Calendars → Embed, copy the permanent
+         link. Set the calendar accent color to #D4AF37 in GHL so it matches the page. -->
+    <div class="calendar-slot" id="calendar-fallback">
       <p>Grab a time that works for you — the calendar opens in a new tab.</p>
       <a class="btn btn-gold" href="https://solaraiflow.com/" target="_blank" rel="noopener">Open the Booking Calendar</a>
     </div>
+    <div id="calendar-embed" hidden style="max-width:860px;margin:0 auto"></div>
   </div>
 </section>
 
@@ -534,6 +628,79 @@
 </footer>
 
 <script>
+  /* ==========================================================================
+     PRESTON: this is the ONLY block you edit. Fill in a value and its section
+     appears on the page automatically. Leave a value empty ("" or []) and the
+     section stays hidden. Nothing else in this file needs to change.
+     ========================================================================== */
+  var CONTENT = {
+    // Live AI demo line, e.g. "(813) 555-0123". Shows the "Call the AI now"
+    // button in the demo section and swaps out the email-request button.
+    demoPhoneNumber: "",
+
+    // Path or URL to a real recorded AI call (mp3), e.g. "assets/demo-call.mp3".
+    // Shows the audio player in the demo section.
+    demoAudioSrc: "",
+
+    // Path or URL to your photo, e.g. "assets/preston.jpg".
+    // Shows the whole founder section.
+    founderPhotoSrc: "",
+
+    // Your GoHighLevel calendar permalink, e.g.
+    // "https://api.leadconnectorhq.com/widget/booking/yflLNC3pfB".
+    // Embeds the calendar in the booking section and hides the fallback button.
+    ghlCalendarUrl: "",
+
+    // Real client results only — never fake these. Each entry becomes a card.
+    // Example: { company: "Sun Coast Solar, Tampa", result: "+14 booked appointments in 60 days", quote: "We stopped losing night calls entirely." }
+    caseStudies: []
+  };
+
+  (function applyContent(c) {
+    if (c.demoPhoneNumber) {
+      var tel = document.getElementById('demo-tel');
+      tel.href = 'tel:' + c.demoPhoneNumber.replace(/[^+\d]/g, '');
+      tel.textContent = 'Call the AI now: ' + c.demoPhoneNumber;
+      tel.hidden = false;
+      document.getElementById('demo-mailto').hidden = true;
+    }
+    if (c.demoAudioSrc) {
+      document.getElementById('demo-audio-player').src = c.demoAudioSrc;
+      document.getElementById('demo-audio').hidden = false;
+    }
+    if (c.founderPhotoSrc) {
+      document.getElementById('founder-photo').src = c.founderPhotoSrc;
+      document.getElementById('founder').hidden = false;
+    }
+    if (c.ghlCalendarUrl) {
+      var slot = document.getElementById('calendar-embed');
+      var frame = document.createElement('iframe');
+      frame.src = c.ghlCalendarUrl;
+      frame.style.cssText = 'width:100%;height:720px;border:none;border-radius:8px;background:transparent';
+      frame.title = 'Book a strategy call';
+      slot.appendChild(frame);
+      slot.hidden = false;
+      document.getElementById('calendar-fallback').hidden = true;
+    }
+    if (c.caseStudies.length) {
+      var grid = document.getElementById('case-grid');
+      c.caseStudies.forEach(function (cs) {
+        var card = document.createElement('div');
+        card.className = 'card';
+        var glyph = document.createElement('span');
+        glyph.className = 'glyph';
+        glyph.textContent = cs.company;
+        var h = document.createElement('h3');
+        h.textContent = cs.result;
+        var p = document.createElement('p');
+        p.textContent = cs.quote ? '“' + cs.quote + '”' : '';
+        card.appendChild(glyph); card.appendChild(h); card.appendChild(p);
+        grid.appendChild(card);
+      });
+      document.getElementById('proof').hidden = false;
+    }
+  })(CONTENT);
+
   // sticky nav hairline
   var nav = document.getElementById('nav');
   addEventListener('scroll', function () {
