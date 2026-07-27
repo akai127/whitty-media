@@ -5,3 +5,4 @@ florida-solar-prospects/
 # Local tooling (references local paths / API env)
 brand/generate_logos.py
 brand/logo_prompts.json
+.claude/
