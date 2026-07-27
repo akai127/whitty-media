@@ -260,6 +260,11 @@
   }
   @media (max-width:960px){
     .hero-grid{grid-template-columns:1fr;gap:38px;padding:44px 0 56px}
+    /* center the hero copy on mobile — matches the centered feel of the rest of the page */
+    .hero-grid > div:first-child{text-align:center}
+    .hero h1{max-width:none;margin:0 auto}
+    .hero .hero-sub{margin-left:auto;margin-right:auto}
+    .hero-points{display:inline-flex;text-align:left}
     .est-card{justify-self:stretch;max-width:none}
     .trust-inner{grid-template-columns:repeat(2,1fr)}
     .cards,.rev-grid,.fin-grid{grid-template-columns:1fr}
