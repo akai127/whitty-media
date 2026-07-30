@@ -459,9 +459,10 @@
         <a class="btn btn-gold" id="demo-mailto" href="mailto:prestonmwaia@gmail.com?subject=Live%20AI%20demo%20request&body=Hi%20Preston%2C%20I%27d%20like%20to%20hear%20the%20AI%20in%20action.%20My%20name%20and%20number%3A%20">Request a Live Demo Call</a>
       </div>
       <div class="demo-audio" id="demo-audio" hidden>
-        <!-- Appears when CONTENT.demoAudioSrc is set (e.g. a real recorded AI call). -->
+        <!-- Appears when CONTENT.demoAudioSrc is set. Caption must always
+             describe what the audio actually is — sampler vs. real call. -->
         <audio controls preload="none" id="demo-audio-player"></audio>
-        <p>A real call handled end-to-end by the AI — recorded with permission.</p>
+        <p>A sample of the AI voices — press play and meet Jenna, James, and Terese.</p>
       </div>
     </div>
   </div>
@@ -656,13 +657,15 @@
     // button in the demo section and swaps out the email-request button.
     demoPhoneNumber: "",
 
-    // Path or URL to a real recorded AI call (mp3), e.g. "assets/demo-call.mp3".
-    // Shows the audio player in the demo section.
-    demoAudioSrc: "",
+    // Path or URL to the demo audio (mp3). Currently a sampler of the AI
+    // voices (generated 2026-07-30). When a real recorded client call exists
+    // (recorded with permission), swap the file AND update the caption in the
+    // #demo-audio section to say it's a real call.
+    demoAudioSrc: "assets/demo-voices.mp3",
 
     // Path or URL to your photo, e.g. "assets/preston.jpg".
     // Shows the whole founder section.
-    founderPhotoSrc: "",
+    founderPhotoSrc: "assets/preston-headshot.jpg",
 
     // Your GoHighLevel calendar permalink, e.g.
     // "https://api.leadconnectorhq.com/widget/booking/yflLNC3pfB".
