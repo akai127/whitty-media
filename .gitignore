@@ -1,8 +1,16 @@
 # Business-sensitive research and lead data — never publish
 research/
 florida-solar-prospects/
+illinois-solar-prospects/
+pennsylvania-solar-prospects/
 
-# Local tooling (references local paths / API env)
-brand/generate_logos.py
-brand/logo_prompts.json
+# Local-only: old site version, scratch files
+site/
+Test.png
+
+# Brand workspace stays local — only the favicon ships with the site
+brand/*
+!brand/wm-wave-badge.svg
+
+# Local tooling
 .claude/

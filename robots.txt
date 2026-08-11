@@ -1,8 +1,4 @@
 User-agent: *
-Disallow: /florida-solar-prospects/
-Disallow: /illinois-solar-prospects/
-Disallow: /pennsylvania-solar-prospects/
-Disallow: /research/
-Disallow: /brand/
+Allow: /
 
 Sitemap: https://solaraiflow.com/sitemap.xml
