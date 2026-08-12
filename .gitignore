@@ -1,16 +1,10 @@
-# Business-sensitive research and lead data — never publish
-research/
-florida-solar-prospects/
-illinois-solar-prospects/
-pennsylvania-solar-prospects/
-
-# Local-only: old site version, scratch files
-site/
-Test.png
-
-# Brand workspace stays local — only the favicon ships with the site
-brand/*
-!brand/wm-wave-badge.svg
-
-# Local tooling
-.claude/
+# Whitelist model: NOTHING at repo root is tracked except the website.
+#
+#   docs/  -> the live site, deployed to solaraiflow.com via GitHub Pages
+#   everything else at root (research/, prospect lists, sales/, brand/,
+#   scratch files, whatever we make) stays local automatically.
+#
+# To ship something, put it inside docs/. To keep it private, put it anywhere else.
+/*
+!/docs/
+!/.gitignore
