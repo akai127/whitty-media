@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Whitty Media — AI Receptionists &amp; Appointment Booking for Solar Companies</title>
-<meta name="description" content="Whitty Media installs AI receptionists and outbound calling systems for solar installers — answer every lead in seconds, qualify homeowners, and book consultations straight into your calendar, 24/7.">
-<meta property="og:title" content="Whitty Media — AI Call Systems for Solar Installers">
-<meta property="og:description" content="Answer every lead in seconds. Qualify homeowners. Book consultations automatically. 24/7.">
+<title>Whitty Media — The Solar Appointment Engine | Booked Appointments From Leads You Already Own</title>
+<meta name="description" content="The Solar Appointment Engine plugs into a solar company's existing lead database and turns dead CRM leads into booked, qualified consultations — 10+ sat appointments in your first 90 days, with zero new ad spend, or we work free until you have them.">
+<meta property="og:title" content="Whitty Media — The Solar Appointment Engine">
+<meta property="og:description" content="10+ booked, qualified solar appointments from leads you already paid for. Zero new ad spend. Guaranteed in writing.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://solaraiflow.com/">
 <link rel="canonical" href="https://solaraiflow.com/">
@@ -18,12 +18,12 @@
   "name": "Whitty Media",
   "url": "https://solaraiflow.com/",
   "email": "prestonmwaia@gmail.com",
-  "description": "AI receptionists and outbound calling systems for solar companies — answer every lead in seconds, qualify homeowners, and book consultations automatically, 24/7.",
+  "description": "The Solar Appointment Engine — a done-for-you follow-up and database reactivation system for solar companies. Books qualified consultations from the leads installers already paid for, with no new ad spend.",
   "areaServed": {
-    "@type": "State",
-    "name": "Florida"
+    "@type": "Country",
+    "name": "United States"
   },
-  "knowsAbout": ["AI receptionist", "appointment booking", "solar lead follow-up", "outbound calling"]
+  "knowsAbout": ["solar lead follow-up", "database reactivation", "appointment booking", "speed to lead", "solar marketing"]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,6 +39,7 @@
     --gold-light:#F1D77E;
     --gold-deep:#A8842C;
     --champagne:#E3CD96;
+    --ember:#E06A45;
     --body:#E9E5DB;
     --muted:#9C968A;
     --display:'Fraunces',Georgia,serif;
@@ -57,7 +58,7 @@
   }
   ::selection{background:var(--gold);color:var(--ink)}
   a{color:var(--gold);text-decoration:none}
-  a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+  a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
   img,svg{max-width:100%}
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
 
@@ -97,7 +98,7 @@
   .hero{padding:88px 0 0}
   .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
 
-  /* example-call transcript card */
+  /* example-conversation card */
   .callcard{
     background:var(--panel);border:1px solid rgba(212,175,55,.16);border-radius:10px;
     padding:22px;max-width:430px;width:100%;justify-self:end;
@@ -127,6 +128,7 @@
     font-family:var(--mono);font-size:12.5px;letter-spacing:.24em;
     color:var(--gold);text-transform:uppercase;display:block;margin-bottom:22px;
   }
+  .eyebrow.pain{color:var(--ember)}
   .hero h1{
     font-family:var(--display);font-weight:500;
     font-size:clamp(38px,6vw,68px);
@@ -147,6 +149,7 @@
   .stat{padding:34px 22px;border-left:1px solid var(--hairline)}
   .stat:first-child{border-left:none}
   .stat-num{font-family:var(--mono);font-size:34px;font-weight:500;color:var(--gold-light);line-height:1}
+  .stat-num.ember{color:var(--ember)}
   .stat-label{font-size:13.5px;color:var(--muted);margin-top:10px;line-height:1.45}
   .stat-src{font-family:var(--mono);font-size:10.5px;color:rgba(156,150,138,.55);display:block;margin-top:8px;letter-spacing:.06em}
 
@@ -169,6 +172,39 @@
   .card h3{font-family:var(--sans);font-weight:600;font-size:18px;color:var(--body);margin-bottom:10px}
   .card p{font-size:15.5px;color:var(--muted)}
   .card .glyph{font-family:var(--mono);color:var(--gold);font-size:13px;letter-spacing:.15em;display:block;margin-bottom:16px}
+  .card .glyph.ember{color:var(--ember)}
+
+  /* calculator */
+  .calc-box{
+    background:var(--panel);border:1px solid rgba(212,175,55,.14);border-radius:10px;
+    padding:44px 40px;
+  }
+  .calc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:34px}
+  .field label{
+    display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:8px;
+  }
+  .field input{
+    width:100%;background:var(--panel-2);border:1px solid var(--hairline);color:var(--gold-light);
+    font-family:var(--display);font-weight:600;font-size:26px;
+    padding:10px 14px;border-radius:6px;font-variant-numeric:tabular-nums;
+  }
+  .math-rows{border:1px solid var(--hairline);border-radius:8px;overflow:hidden}
+  .mrow{
+    display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+    padding:16px 22px;border-top:1px solid rgba(212,175,55,.12);background:var(--panel-2);
+  }
+  .mrow:first-child{border-top:none}
+  .mrow .k{color:var(--muted);font-size:15px}
+  .mrow .v{
+    font-family:var(--display);font-weight:600;font-size:clamp(20px,2.6vw,30px);
+    color:var(--body);font-variant-numeric:tabular-nums;white-space:nowrap;
+  }
+  .mrow .v.ember{color:var(--ember)}
+  .mrow.total{background:rgba(212,175,55,.08)}
+  .mrow.total .v{color:var(--gold-light);font-size:clamp(26px,3.4vw,40px)}
+  .mrow.total .k{color:var(--body)}
+  .calc-note{font-family:var(--mono);font-size:11px;color:rgba(156,150,138,.6);margin-top:16px;letter-spacing:.05em;line-height:1.7}
 
   /* system */
   .system{background:var(--panel);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
@@ -182,6 +218,18 @@
   .sys-row h3{font-family:var(--sans);font-weight:600;font-size:21px;color:#F5F2E9}
   .sys-row h3 span{display:block;font-family:var(--mono);font-weight:400;font-size:12px;color:var(--gold);letter-spacing:.18em;margin-top:6px;text-transform:uppercase}
   .sys-row p{color:var(--muted);font-size:16px}
+
+  /* checklist (what counts / compliance) */
+  .checks{display:grid;gap:12px;max-width:820px}
+  .check{
+    display:flex;gap:16px;align-items:baseline;
+    background:var(--panel);border:1px solid rgba(212,175,55,.1);border-radius:6px;
+    padding:16px 22px;
+  }
+  .check .tick{font-family:var(--mono);font-weight:600;color:var(--gold);flex:none}
+  .check .tick.x{color:var(--ember)}
+  .check p{font-size:15.5px;color:var(--muted)}
+  .check p strong{color:var(--body)}
 
   /* founder note (hidden until CONTENT.founderPhotoSrc is set) */
   .founder{
@@ -209,7 +257,7 @@
   .demo-cta{flex:0 0 auto}
 
   /* steps */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:step}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .step{padding:30px 26px;border-left:1px solid var(--hairline)}
   .step-num{font-family:var(--mono);font-size:12.5px;color:var(--gold);letter-spacing:.2em;display:block;margin-bottom:14px}
   .step h3{font-weight:600;font-size:18px;color:var(--body);margin-bottom:10px}
@@ -225,6 +273,11 @@
   .guarantee h2{font-family:var(--display);font-weight:500;font-size:clamp(26px,3.6vw,38px);color:#F5F2E9;line-height:1.2}
   .guarantee h2 em{font-style:italic;color:var(--gold)}
   .guarantee p{color:var(--muted);margin-top:16px;max-width:52ch;margin-left:auto;margin-right:auto}
+  .guarantee .conds{
+    text-align:left;max-width:520px;margin:26px auto 0;color:var(--muted);font-size:15px;
+  }
+  .guarantee .conds li{margin:6px 0 6px 22px}
+  .guarantee .conds p strong{color:var(--body)}
 
   /* fit */
   .fit{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -291,6 +344,7 @@
     .stat:nth-child(-n+2){border-top:none}
     .stat:nth-child(even){border-left:1px solid var(--hairline)}
     .cards,.steps{grid-template-columns:1fr}
+    .calc-grid{grid-template-columns:repeat(2,1fr)}
     .step{border-left:none;border-top:1px solid var(--hairline);padding-left:0}
     .sys-row{grid-template-columns:1fr;gap:10px;padding:32px 0}
     .sys-num{font-size:34px}
@@ -301,6 +355,8 @@
     section{padding:64px 0}
     .hero{padding-top:56px}
     .demo-box{padding:36px 26px}
+    .calc-grid{grid-template-columns:1fr}
+    .calc-box{padding:30px 22px}
   }
 </style>
 </head>
@@ -317,11 +373,11 @@
       <span class="brand-name">WHITTY&nbsp;<b>MEDIA</b></span>
     </a>
     <nav class="nav-links" aria-label="Main">
-      <a href="#system">The System</a>
-      <a href="#demo">Hear the AI</a>
+      <a href="#math">Run Your Numbers</a>
       <a href="#how">How It Works</a>
+      <a href="#counts">What Counts</a>
+      <a href="#guarantee">The Guarantee</a>
       <a href="#faq">FAQ</a>
-      <a href="demo/" target="_blank" rel="noopener">Sample Site ↗</a>
     </nav>
     <a class="btn btn-gold" href="#book">Book a Call</a>
   </div>
@@ -333,29 +389,28 @@
 <section class="hero" aria-labelledby="hero-h">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow">For solar installers · AI call systems</span>
-      <h1 id="hero-h">Your next ten installs are <em>calling.</em><br>Is anyone answering?</h1>
-      <p class="hero-sub">Whitty Media installs an <strong>AI receptionist and outbound calling system</strong> built for solar companies. It answers every lead in seconds, qualifies the homeowner, and books the consultation straight into your calendar — <strong>24 hours a day, 7 days a week.</strong></p>
+      <span class="eyebrow">For residential solar companies · The Solar Appointment Engine</span>
+      <h1 id="hero-h">Your next ten installs are already <em>in your CRM.</em></h1>
+      <p class="hero-sub">We plug a done-for-you follow-up and reactivation system into the lead database <strong>you already paid for</strong>. It works every lead — new ones in under 60 seconds, old ones with a compliant revival campaign — and books <strong>qualified, confirmed consultations</strong> straight onto your closers' calendars. <strong>Zero new ad spend.</strong></p>
       <div class="hero-ctas">
-        <a class="btn btn-gold" href="#book">Book Your Free Strategy Call</a>
-        <a class="btn btn-ghost" href="#demo">Hear the AI Live</a>
+        <a class="btn btn-gold" href="#book">Book Your Strategy Call</a>
+        <a class="btn btn-ghost" href="#math">Run Your Numbers</a>
       </div>
-      <span class="hero-note">Built for installers scaling past $50k/month. No contracts to start.</span>
+      <span class="hero-note">For installers with 500+ leads in their database. No long-term contracts.</span>
     </div>
 
-    <aside class="callcard" aria-label="Example of an AI-handled call">
+    <aside class="callcard" aria-label="Example of a reactivated lead conversation">
       <div class="callcard-head">
-        <div class="callcard-title">Inbound call · 9:42 PM
-          <span>New lead — Facebook quote form</span>
+        <div class="callcard-title">Outbound text · Tuesday 6:12 PM
+          <span>Lead from March 2025 — quoted, never booked</span>
         </div>
-        <span class="chip">Answered in 0.8s</span>
+        <span class="chip">Reactivated</span>
       </div>
-      <div class="bubble ai"><span class="who">AI Receptionist</span>Thanks for calling Sun Coast Solar, this is Ava. Are you calling about the quote request you just sent over?</div>
-      <div class="bubble caller"><span class="who">Homeowner</span>Yeah — I wanted to see what my electric bill would look like with panels.</div>
-      <div class="bubble ai"><span class="who">AI Receptionist</span>Happy to help with that. Roughly what's your monthly bill with FPL right now?</div>
-      <div class="bubble caller"><span class="who">Homeowner</span>Usually around $280 in summer.</div>
-      <div class="bubble ai"><span class="who">AI Receptionist</span>That's exactly the range solar makes sense for. I have Tuesday at 6:15 PM open for a free consultation — does that work?</div>
-      <div class="callcard-toast">✓ Appointment booked — Tue 6:15 PM · synced to calendar</div>
+      <div class="bubble ai"><span class="who">Sun Coast Solar</span>Hi Mark, it's Ava with Sun Coast Solar. You asked us about panels last spring and it looks like life got busy — no pressure at all. Still curious what your bill would look like with solar?</div>
+      <div class="bubble caller"><span class="who">Homeowner</span>Honestly yeah. FPL just went up again, I paid $310 last month.</div>
+      <div class="bubble ai"><span class="who">Sun Coast Solar</span>That's exactly the range where it makes sense. Want to grab 20 minutes with our consultant — Thursday 5:30 or Saturday 10:00?</div>
+      <div class="bubble caller"><span class="who">Homeowner</span>Thursday works.</div>
+      <div class="callcard-toast">✓ Appointment booked — Thu 5:30 PM · synced to calendar</div>
       <div class="callcard-note">EXAMPLE CONVERSATION</div>
     </aside>
   </div>
@@ -365,24 +420,24 @@
 <div class="stats" role="group" aria-label="Industry statistics">
   <div class="wrap stats-inner">
     <div class="stat">
+      <div class="stat-num ember">42 hrs</div>
+      <div class="stat-label">average lead response time across 2,241 audited US companies — 23% never responded at all</div>
+      <span class="stat-src">Harvard Business Review</span>
+    </div>
+    <div class="stat">
       <div class="stat-num">21×</div>
-      <div class="stat-label">more likely to qualify a lead when it's called back within 5 minutes</div>
+      <div class="stat-label">more likely to qualify a lead when it's contacted within 5 minutes instead of 30</div>
       <span class="stat-src">MIT / InsideSales</span>
     </div>
     <div class="stat">
-      <div class="stat-num">62%</div>
-      <div class="stat-label">of calls to small service businesses go unanswered</div>
-      <span class="stat-src">Industry benchmark</span>
+      <div class="stat-num">78%</div>
+      <div class="stat-label">of buyers choose the company that responds to them first — and they asked three installers for quotes</div>
+      <span class="stat-src">Lead Connect</span>
     </div>
     <div class="stat">
-      <div class="stat-num">85%</div>
-      <div class="stat-label">of callers who hit voicemail never call back</div>
-      <span class="stat-src">Missed-call studies</span>
-    </div>
-    <div class="stat">
-      <div class="stat-num">&lt;60s</div>
-      <div class="stat-label">how fast our AI dials every new lead — nights and weekends included</div>
-      <span class="stat-src">Whitty Flow System</span>
+      <div class="stat-num">5+</div>
+      <div class="stat-label">touches to close 80% of sales — yet 44% of reps give up after a single follow-up attempt</div>
+      <span class="stat-src">ZoomInfo / IRC Sales</span>
     </div>
   </div>
 </div>
@@ -391,117 +446,149 @@
 <section aria-labelledby="problem-h">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">The leak in your pipeline</span>
-      <h2 id="problem-h">Every missed call is an install on <em>someone else's</em> truck.</h2>
-      <p>Homeowners fill out three quote forms at once. The first company to get them on the phone usually wins the deal — and it's almost never the company whose crew is up on a roof.</p>
+      <span class="eyebrow pain">Where the money leaks</span>
+      <h2 id="problem-h">Your marketing budget dies in the <em>follow-up gap.</em></h2>
+      <p>The easy years of solar are over — the federal tax credit is gone, acquisition costs are up 40%, and the installers who survive won't be the ones who buy the most leads. They'll be the ones who waste the fewest.</p>
     </div>
     <div class="cards">
       <div class="card reveal">
-        <span class="glyph">/01 — SPEED</span>
+        <span class="glyph ember">/01 — SPEED</span>
         <h3>Leads go cold in minutes</h3>
-        <p>You paid real money for that lead. By the time you call back after the site visit, they've already booked with whoever answered first.</p>
+        <p>Homeowners fill out three quote forms at once. The first company on the phone usually wins — and it's never the company whose reps are up on a roof.</p>
       </div>
       <div class="card reveal">
-        <span class="glyph">/02 — FOLLOW-UP</span>
-        <h3>Follow-up dies after one try</h3>
-        <p>Most solar leads need five or more touches to book. One voicemail and a prayer isn't a follow-up system — it's a donation to your competitors.</p>
+        <span class="glyph ember">/02 — FOLLOW-UP</span>
+        <h3>Follow-up dies at touch one</h3>
+        <p>The sale happens at touch five. Most teams stop at touch one — a voicemail and a prayer. That gap is where every dollar you spend on leads goes to die.</p>
       </div>
       <div class="card reveal">
-        <span class="glyph">/03 — COVERAGE</span>
-        <h3>Humans clock out at five</h3>
-        <p>A receptionist costs $3,000+ a month and covers 40 hours a week. Homeowners research solar at 9pm on a Tuesday. Nobody's there.</p>
+        <span class="glyph ember">/03 — THE PILE</span>
+        <h3>Your CRM is a graveyard of paid leads</h3>
+        <p>Years of quotes that stalled, forms nobody chased, "call me in the spring" notes nobody called. On shared leads, 96 of 100 never became a deal — they weren't gone, they were never properly worked.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ SYSTEM ============ -->
-<section class="system" id="system" aria-labelledby="system-h">
+<!-- ============ CALCULATOR ============ -->
+<section id="math" aria-labelledby="math-h">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">The Whitty Flow System</span>
-      <h2 id="system-h">One system that answers, chases, and <em>books.</em></h2>
-      <p>Three pieces, installed and managed for you. The lead's journey runs through all of them — from first ring to a confirmed slot on your calendar.</p>
+      <span class="eyebrow">Your numbers, not ours</span>
+      <h2 id="math-h">Run <em>your</em> numbers.</h2>
+      <p>Type your real figures. The math below computes live — this is the same arithmetic we'll walk through on the strategy call.</p>
     </div>
-    <div class="sys-rows">
-      <div class="sys-row reveal">
-        <span class="sys-num">01</span>
-        <h3>AI Receptionist <span>Inbound · answers instantly</span></h3>
-        <p>Every inbound call answered before the second ring, day or night. It sounds human, answers questions about panels, savings, and financing, and hands hot callers straight to you when you're available.</p>
+    <div class="calc-box reveal">
+      <div class="calc-grid">
+        <div class="field">
+          <label for="inLeads">Old leads in your CRM</label>
+          <input id="inLeads" type="number" value="1000" min="0" step="50" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="inCPL">Avg cost per lead ($)</label>
+          <input id="inCPL" type="number" value="200" min="0" step="10" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="inClose">Close rate on sat appts (%)</label>
+          <input id="inClose" type="number" value="20" min="1" max="100" step="1" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="inDeal">Avg revenue per install ($)</label>
+          <input id="inDeal" type="number" value="28000" min="0" step="1000" inputmode="numeric">
+        </div>
       </div>
-      <div class="sys-row reveal">
-        <span class="sys-num">02</span>
-        <h3>Speed-to-Lead Dialer <span>Outbound · calls in under 60 seconds</span></h3>
-        <p>The moment a new lead hits your website or ad form, the AI calls them back — while they're still on the couch thinking about solar. It also works your existing list, reviving quotes that stalled months ago.</p>
+      <div class="math-rows">
+        <div class="mrow"><span class="k">What you already paid for the leads sitting dead in your CRM</span><span class="v ember" id="sunkCost">$200,000</span></div>
+        <div class="mrow"><span class="k">Qualified sat appointments per month, once the engine is running</span><span class="v">10</span></div>
+        <div class="mrow"><span class="k">× your close rate</span><span class="v" id="mClose">20%</span></div>
+        <div class="mrow"><span class="k">× your average install</span><span class="v" id="mDeal">$28,000</span></div>
+        <div class="mrow total"><span class="k">New revenue per month — from leads you already own</span><span class="v" id="mMonthly">$56,000</span></div>
+        <div class="mrow"><span class="k">Over 12 months</span><span class="v" id="mAnnual">$672,000</span></div>
       </div>
-      <div class="sys-row reveal">
-        <span class="sys-num">03</span>
-        <h3>Booking Funnel <span>Qualify · schedule · remind</span></h3>
-        <p>The AI qualifies every prospect — homeowner, roof, utility bill, timeline — then books the consultation directly into your calendar and runs SMS reminders that cut no-shows dramatically.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ DEMO ============ -->
-<section id="demo" aria-labelledby="demo-h">
-  <div class="wrap">
-    <div class="demo-box reveal">
-      <div class="demo-text">
-        <span class="eyebrow">Proof, not promises</span>
-        <h2 id="demo-h">Talk to the AI <em>before</em> you talk to us.</h2>
-        <p>Don't take our word that it sounds human — hear it handle a real solar conversation. Request a live demo and our AI will call you and walk you through exactly what your customers would experience.</p>
-      </div>
-      <div class="demo-cta">
-        <!-- The tel: button appears automatically when CONTENT.demoPhoneNumber is set;
-             the mailto fallback hides itself at the same time. -->
-        <a class="btn btn-gold" id="demo-tel" href="#" hidden>Call the AI now</a>
-        <a class="btn btn-gold" id="demo-mailto" href="mailto:prestonmwaia@gmail.com?subject=Live%20AI%20demo%20request&body=Hi%20Preston%2C%20I%27d%20like%20to%20hear%20the%20AI%20in%20action.%20My%20name%20and%20number%3A%20">Request a Live Demo Call</a>
-      </div>
-      <div class="demo-audio" id="demo-audio" hidden>
-        <!-- Appears when CONTENT.demoAudioSrc is set. Caption must always
-             describe what the audio actually is — sampler vs. real call. -->
-        <audio controls preload="none" id="demo-audio-player"></audio>
-        <p>A sample of the AI voices — press play and meet Jenna, James, and Terese.</p>
-      </div>
+      <p class="calc-note">Benchmarks behind the defaults: blended solar cost-per-lead ~$206 (SurgePV) · 2–4% close rate on shared leads (Sunvoy / Enervio) · pre-set solar appointments retail for $150–$300 each (Talk-Ease / CallForce).</p>
     </div>
   </div>
 </section>
 
 <!-- ============ HOW IT WORKS ============ -->
-<section id="how" aria-labelledby="how-h">
+<section class="system" id="how" aria-labelledby="how-h">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">From call to calendar</span>
-      <h2 id="how-h">Live in days, not <em>quarters.</em></h2>
+      <span class="eyebrow">The mechanism</span>
+      <h2 id="how-h">Installed in your business in <em>three steps.</em></h2>
+      <p>You change nothing about your ads or your sales process. Appointments appear.</p>
     </div>
-    <div class="steps">
-      <div class="step reveal">
-        <span class="step-num">STEP 1</span>
-        <h3>Strategy call</h3>
-        <p>Thirty minutes. We map where your leads come from, where they die, and what a booked appointment is worth to you.</p>
+    <div class="sys-rows">
+      <div class="sys-row reveal">
+        <span class="sys-num">01</span>
+        <h3>We plug in, you approve <span>Days 1–7</span></h3>
+        <p>We connect to your CRM and lead sources, register texting numbers under <em>your</em> business name with the carriers, and clean your list. You sign off on every script before a single message sends.</p>
       </div>
-      <div class="step reveal">
-        <span class="step-num">STEP 2</span>
-        <h3>We build &amp; train your AI</h3>
-        <p>Your scripts, your offers, your calendar, your CRM. We build the receptionist and dialer around how you already sell — live within about a week.</p>
+      <div class="sys-row reveal">
+        <span class="sys-num">02</span>
+        <h3>Every lead gets worked <span>From day 7 — nothing slips again</span></h3>
+        <p>New leads get a response in under 60 seconds, 24/7, then the full five-to-eight-touch sequence where sales actually happen. Your old database gets a compliant revival campaign that reads like a person following up — not a blast.</p>
       </div>
-      <div class="step reveal">
-        <span class="step-num">STEP 3</span>
-        <h3>Appointments hit your calendar</h3>
-        <p>You only talk to qualified homeowners who booked a time to talk to you. We monitor, tune, and report every month.</p>
+      <div class="sys-row reveal">
+        <span class="sys-num">03</span>
+        <h3>Sits land on your calendar <span>Weeks 2–6</span></h3>
+        <p>Every prospect is qualified — homeowner, utility bill, credit, roof — then booked directly onto your closers' calendars with reminders that cut no-shows. Anything ambiguous routes to a human. You just take the sits.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ============ WHAT COUNTS ============ -->
+<section id="counts" aria-labelledby="counts-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">No games</span>
+      <h2 id="counts-h">An appointment only counts when it's <em>real.</em></h2>
+      <p>Unqualified sits waste $23–47k per rep, per year. We count sits, not "bookings" — here's the standard every appointment has to pass.</p>
+    </div>
+    <div class="checks reveal">
+      <div class="check"><span class="tick">✓</span><p><strong>Verified homeowner</strong> — owner-occupant, decision-maker aware of the appointment.</p></div>
+      <div class="check"><span class="tick">✓</span><p><strong>$100+/month utility bill</strong> — below that, solar rarely pencils. Provider captured.</p></div>
+      <div class="check"><span class="tick">✓</span><p><strong>Stated 600+ credit</strong> — financeable under standard solar loan programs.</p></div>
+      <div class="check"><span class="tick">✓</span><p><strong>Viable roof</strong> — age and shading checked before booking. No blocking HOA.</p></div>
+      <div class="check"><span class="tick">✓</span><p><strong>Confirmed sit on your calendar</strong> — reconfirmed within 24 hours of the appointment.</p></div>
+      <div class="check"><span class="tick x">✗</span><p><strong>No-shows don't count.</strong> They get replaced, not tallied. Every booking comes with its full conversation transcript.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ GUARANTEE ============ -->
-<section aria-labelledby="guarantee-h">
+<section id="guarantee" aria-labelledby="guarantee-h">
   <div class="wrap">
     <div class="guarantee reveal">
-      <span class="eyebrow">Our commitment</span>
-      <h2 id="guarantee-h">10+ qualified appointments in your first 90 days — <em>or we keep working free</em> until you get them.</h2>
-      <p>We win when qualified homeowners sit appointments on your calendar. If the system doesn't produce, the cost of fixing it is ours, not yours.</p>
+      <span class="eyebrow">In writing, in the agreement</span>
+      <h2 id="guarantee-h">10+ qualified, sat appointments in your first 90 days — <em>or we work free until you have them.</em></h2>
+      <p><strong>Why we can offer this:</strong> we only take on companies with 500+ leads in their database. We've seen what those lists produce. The math works, or we don't take the deal — and if the system underperforms, the cost of fixing it is ours, not yours.</p>
+      <div class="conds">
+        <p><strong>Your side of it:</strong></p>
+        <ul>
+          <li>Lead list and CRM access granted at onboarding</li>
+          <li>Closer calendar connected and kept current</li>
+          <li>Your reps actually take the booked sits</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPLIANCE ============ -->
+<section aria-labelledby="compliance-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Trust, engineered</span>
+      <h2 id="compliance-h">Compliant by design. Your brand is <em>never</em> the test case.</h2>
+      <p>TCPA exposure runs $500–$1,500 per message. Compliance isn't our fine print — it's the product.</p>
+    </div>
+    <div class="checks reveal">
+      <div class="check"><span class="tick">✓</span><p><strong>Registered numbers.</strong> All texting runs on A2P 10DLC numbers registered to <em>your</em> business — carriers block unregistered traffic outright. Registration is part of onboarding, not your problem.</p></div>
+      <div class="check"><span class="tick">✓</span><p><strong>First-party leads only.</strong> We message people who gave <em>your company</em> their information. Never purchased or shared lists under your name.</p></div>
+      <div class="check"><span class="tick">✓</span><p><strong>Instant opt-out.</strong> Any revocation signal — STOP, "don't text me," anything reasonable — suppresses in real time, ahead of current FCC rules.</p></div>
+      <div class="check"><span class="tick">✓</span><p><strong>Quiet hours + audit log.</strong> Sender identified in every thread, no off-hours messaging, and a full consent and message log that you own.</p></div>
     </div>
   </div>
 </section>
@@ -511,7 +598,7 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Results</span>
-      <h2 id="proof-h">Installers we've put back on the <em>phones.</em></h2>
+      <h2 id="proof-h">Databases we've put back to <em>work.</em></h2>
     </div>
     <div class="cards" id="case-grid"></div>
   </div>
@@ -524,8 +611,33 @@
       <img id="founder-photo" src="" alt="Preston Whitty, founder of Whitty Media">
       <div>
         <h3 id="founder-h">The person behind the system.</h3>
-        <p>I'm Preston Whitty. I build AI call systems exclusively for solar companies — because the installers doing the best work are usually the ones losing the most deals to an unanswered phone. I keep my client list small so every build gets my full attention, and my own number is on this page. Call it — see who answers.</p>
+        <p>I'm Preston Whitty. I build appointment systems exclusively for solar companies — because the installers doing the best work are usually the ones losing the most deals to follow-up that stops at voicemail number one. I keep my client list small so every build gets my full attention, and my own number is on this page. Text it — see how fast you hear back.</p>
         <p class="sig">— Preston</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEMO ============ -->
+<section id="demo" aria-labelledby="demo-h">
+  <div class="wrap">
+    <div class="demo-box reveal">
+      <div class="demo-text">
+        <span class="eyebrow">Proof, not promises</span>
+        <h2 id="demo-h">Hear it <em>before</em> you buy it.</h2>
+        <p>The follow-up has to sound like a person — because your customers can tell. Request a demo and we'll show you exactly what your leads would experience, using your scripts and your offers.</p>
+      </div>
+      <div class="demo-cta">
+        <!-- The tel: button appears automatically when CONTENT.demoPhoneNumber is set;
+             the mailto fallback hides itself at the same time. -->
+        <a class="btn btn-gold" id="demo-tel" href="#" hidden>Call the demo line</a>
+        <a class="btn btn-gold" id="demo-mailto" href="mailto:prestonmwaia@gmail.com?subject=Live%20demo%20request&body=Hi%20Preston%2C%20I%27d%20like%20to%20see%20the%20follow-up%20system%20in%20action.%20My%20name%20and%20number%3A%20">Request a Live Demo</a>
+      </div>
+      <div class="demo-audio" id="demo-audio" hidden>
+        <!-- Appears when CONTENT.demoAudioSrc is set. Caption must always
+             describe what the audio actually is — sampler vs. real call. -->
+        <audio controls preload="none" id="demo-audio-player"></audio>
+        <p>A sample of the voices — press play and meet Jenna, James, and Terese.</p>
       </div>
     </div>
   </div>
@@ -542,17 +654,17 @@
       <div class="fit-col yes reveal">
         <h3>A great fit if you're…</h3>
         <ul>
-          <li>A solar installation company doing $20k+/month</li>
-          <li>Generating leads you don't have time to chase</li>
-          <li>Sitting on a CRM full of old quotes that never closed</li>
-          <li>Ready to answer every call — nights and weekends included</li>
+          <li>A solar company with 500+ leads sitting in a CRM or spreadsheet</li>
+          <li>Buying or generating leads your team doesn't have time to chase</li>
+          <li>Watching acquisition costs climb while close rates don't</li>
+          <li>Ready to work every lead — nights and weekends included</li>
         </ul>
       </div>
       <div class="fit-col no reveal">
         <h3>Not a fit if you're…</h3>
         <ul>
-          <li>Brand new with zero lead flow to work with</li>
-          <li>Looking to buy shared lead lists — we don't sell leads</li>
+          <li>Brand new with no lead database to work with — we don't sell leads</li>
+          <li>Hoping to blast a purchased list — we won't put your name on that</li>
           <li>Wanting software to configure yourself — we're done-for-you</li>
         </ul>
       </div>
@@ -569,32 +681,36 @@
     </div>
     <div class="faq reveal">
       <details>
-        <summary>Will it sound robotic to my customers?</summary>
-        <p>Hear it yourself — that's what the live demo is for. Modern voice AI holds natural conversations, handles interruptions, and answers real solar questions. Most homeowners never realize they weren't talking to your office.</p>
+        <summary>Won't texting old leads annoy people?</summary>
+        <p>Not the way we do it. The first touch is a soft, personal re-introduction that acknowledges time has passed and makes opting out effortless. These are people who asked your company for a quote — most stalled because life got busy, not because they said no. The ones who aren't interested tap out cleanly; the ones who are book a time.</p>
       </details>
       <details>
-        <summary>What happens when the AI can't answer a question?</summary>
-        <p>It transfers the call warmly to you or your team, with a text summary of who's calling and what they need. It never bluffs pricing or makes commitments you didn't script.</p>
+        <summary>Is contacting my old database even legal?</summary>
+        <p>Yes — when it's done right. We only message first-party leads: people who gave your company their information and consent. Every number is registered with carriers under your business, quiet hours are enforced, any opt-out is honored instantly, and you own the full consent and message log. We never touch purchased or shared lists under your name.</p>
+      </details>
+      <details>
+        <summary>My leads are one, two, even three years old. Are they too dead?</summary>
+        <p>Old is normal — that's the point of the system. A homeowner who asked about solar in 2024 still owns the same roof and pays a bigger utility bill today. The list gets cleaned and segmented at onboarding, and the campaign is built for exactly this: polite, patient revival of people who stalled. This is also why we require 500+ leads — the math works on real databases.</p>
+      </details>
+      <details>
+        <summary>What exactly counts as an "appointment"?</summary>
+        <p>A verified homeowner with a $100+/month utility bill, stated 600+ credit, a viable roof, and a confirmed, reconfirmed sit on your calendar. No-shows don't count — they get replaced. Every booking comes with its full conversation transcript so you can see exactly how it was set.</p>
+      </details>
+      <details>
+        <summary>What happens when a lead asks something the system can't answer?</summary>
+        <p>It routes to a human — with the full conversation attached, so nothing gets asked twice. The system never bluffs pricing and never makes commitments you didn't script. You approve every script before anything sends.</p>
       </details>
       <details>
         <summary>How fast can this be live?</summary>
-        <p>Typically about a week from the strategy call: we script it around your offers, connect your calendar and CRM, test it with you, then switch it on.</p>
-      </details>
-      <details>
-        <summary>Does it work with my CRM and calendar?</summary>
-        <p>Yes — the system integrates with the major CRMs and booking calendars used in solar. If you're running spreadsheets, we'll set the pipeline up for you as part of the build.</p>
+        <p>About one to two weeks from the strategy call. Most of that is carrier registration of your texting numbers — a compliance step we handle — plus list cleaning and your script sign-off. The guarantee clock starts when messages go live, and the first reactivated appointments typically book within the first week of sending.</p>
       </details>
       <details>
         <summary>What does it cost?</summary>
-        <p>Every build is quoted on the strategy call based on your call volume and lead flow — but every plan costs less than a part-time receptionist, and unlike a receptionist it never sleeps, quits, or takes a sick day.</p>
+        <p>Founding-client pricing is quoted on the strategy call once we've seen your list size — and the math has to embarrass the price or we don't take the deal. For scale: it costs about a third of one human appointment setter, and the ten guaranteed sits alone are worth $1,500–$3,000 a month at market rates.</p>
       </details>
       <details>
         <summary>Am I locked into a contract?</summary>
-        <p>No long-term lock-in to start. We earn the retainer month to month — the 90-day guarantee exists so the risk sits with us, not you.</p>
-      </details>
-      <details>
-        <summary>Is the outreach compliant?</summary>
-        <p>Yes. The system calls and texts your own opted-in leads — people who asked your company for a quote — with consent capture and opt-out built into every touchpoint. We don't do cold robocalls to purchased lists.</p>
+        <p>No long-term lock-in. We earn it month to month — the 90-day guarantee exists so the risk sits with us, not you.</p>
       </details>
     </div>
   </div>
@@ -603,16 +719,16 @@
 <!-- ============ BOOK ============ -->
 <section class="book" id="book" aria-labelledby="book-h">
   <div class="wrap">
-    <span class="eyebrow">Limited onboarding — a few new installers per month</span>
-    <h2 id="book-h">Every day you wait is another install on <em>someone else's</em> truck.</h2>
-    <p class="book-sub">Book a free 30-minute strategy call. We'll map your lead flow, show you where deals are leaking, and tell you honestly whether the system fits your business.</p>
+    <span class="eyebrow">Three onboardings a month · one per metro</span>
+    <h2 id="book-h">Your dead leads are calling <em>someone.</em></h2>
+    <p class="book-sub">Book a 30-minute strategy call. We'll pull your lead-list size, run the math on your real numbers, and tell you honestly whether your database can support the guarantee. Onboarding is hands-on, so we cap it — your metro is either yours or your competitor's.</p>
 
     <!-- When CONTENT.ghlCalendarUrl is set, the GHL calendar embeds right here and the
          fallback button hides. In GHL: Settings → Calendars → Embed, copy the permanent
          link. Set the calendar accent color to #D4AF37 in GHL so it matches the page. -->
     <div class="calendar-slot" id="calendar-fallback">
       <p>Tell us a couple of times that work for you and we'll lock one in same-day.</p>
-      <a class="btn btn-gold" href="mailto:prestonmwaia@gmail.com?subject=Strategy%20call%20request&body=Hi%20Preston%2C%20I%27d%20like%20to%20book%20a%20strategy%20call.%20Company%3A%20%0ATwo%20times%20that%20work%20for%20me%3A%20">Request a Strategy Call</a>
+      <a class="btn btn-gold" href="mailto:prestonmwaia@gmail.com?subject=Strategy%20call%20request&body=Hi%20Preston%2C%20I%27d%20like%20to%20book%20a%20strategy%20call.%20Company%3A%20%0ARough%20number%20of%20leads%20in%20our%20database%3A%20%0ATwo%20times%20that%20work%20for%20me%3A%20">Request a Strategy Call</a>
     </div>
     <div id="calendar-embed" hidden style="max-width:860px;margin:0 auto"></div>
   </div>
@@ -641,7 +757,7 @@
     </div>
     <p class="legal">
       <strong>SMS Messaging Program:</strong> We use SMS/text messaging to send appointment reminders, service updates, installation confirmations, account notifications, special offers, and product updates. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out at any time. All phone numbers and SMS consent are collected with express opt-in.
-      <br><br>© 2026 Whitty Media. AI call systems for solar installation companies.
+      <br><br>© 2026 Whitty Media. The Solar Appointment Engine — follow-up and database reactivation for solar installation companies.
     </p>
   </div>
 </footer>
@@ -653,7 +769,7 @@
      section stays hidden. Nothing else in this file needs to change.
      ========================================================================== */
   var CONTENT = {
-    // Live AI demo line, e.g. "(813) 555-0123". Shows the "Call the AI now"
+    // Live demo line, e.g. "(813) 555-0123". Shows the "Call the demo line"
     // button in the demo section and swaps out the email-request button.
     demoPhoneNumber: "",
 
@@ -673,7 +789,7 @@
     ghlCalendarUrl: "",
 
     // Real client results only — never fake these. Each entry becomes a card.
-    // Example: { company: "Sun Coast Solar, Tampa", result: "+14 booked appointments in 60 days", quote: "We stopped losing night calls entirely." }
+    // Example: { company: "Sun Coast Solar, Tampa", result: "+14 booked appointments in 60 days", quote: "Their old database paid for the whole quarter." }
     caseStudies: []
   };
 
@@ -681,7 +797,7 @@
     if (c.demoPhoneNumber) {
       var tel = document.getElementById('demo-tel');
       tel.href = 'tel:' + c.demoPhoneNumber.replace(/[^+\d]/g, '');
-      tel.textContent = 'Call the AI now: ' + c.demoPhoneNumber;
+      tel.textContent = 'Call the demo line: ' + c.demoPhoneNumber;
       tel.hidden = false;
       document.getElementById('demo-mailto').hidden = true;
     }
@@ -727,6 +843,25 @@
   addEventListener('scroll', function () {
     nav.classList.toggle('scrolled', scrollY > 8);
   }, { passive: true });
+
+  // live calculator
+  function calcNum(id) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? 0 : v; }
+  function money(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+  function recalc() {
+    var leads = calcNum('inLeads'), cpl = calcNum('inCPL'),
+        close = Math.min(Math.max(calcNum('inClose'), 0), 100) / 100,
+        deal = calcNum('inDeal');
+    document.getElementById('sunkCost').textContent = money(leads * cpl);
+    var monthly = 10 * close * deal;
+    document.getElementById('mClose').textContent = Math.round(close * 100) + '%';
+    document.getElementById('mDeal').textContent = money(deal);
+    document.getElementById('mMonthly').textContent = money(monthly);
+    document.getElementById('mAnnual').textContent = money(monthly * 12);
+  }
+  ['inLeads', 'inCPL', 'inClose', 'inDeal'].forEach(function (id) {
+    document.getElementById(id).addEventListener('input', recalc);
+  });
+  recalc();
 
   // scroll reveals (no-op when reduced motion removes the transition)
   var io = new IntersectionObserver(function (entries) {
