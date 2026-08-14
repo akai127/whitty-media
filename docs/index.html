@@ -237,6 +237,10 @@
     background:var(--panel);border:1px solid rgba(212,175,55,.12);border-radius:10px;padding:44px;
   }
   .founder img{width:150px;height:150px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex:none}
+  .founder-photos{display:flex;flex-direction:column;gap:22px;flex:none}
+  .founder-photos figure{margin:0;text-align:center}
+  .founder-photos figcaption{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:8px;letter-spacing:.08em}
+  .founder-photos figure[hidden]{display:none}
   .founder h3{font-family:var(--display);font-weight:500;font-size:24px;color:#F5F2E9;margin-bottom:12px}
   .founder p{color:var(--muted);font-size:16px}
   .founder .sig{font-family:var(--display);font-style:italic;color:var(--gold);font-size:20px;margin-top:14px}
@@ -339,6 +343,7 @@
     .hero-grid{grid-template-columns:1fr;gap:40px}
     .callcard{justify-self:start}
     .founder{flex-direction:column;text-align:center;padding:34px 26px}
+    .founder-photos{flex-direction:row;justify-content:center;flex-wrap:wrap}
     .stats-inner{grid-template-columns:repeat(2,1fr)}
     .stat{border-left:none;border-top:1px solid var(--hairline)}
     .stat:nth-child(-n+2){border-top:none}
@@ -608,11 +613,20 @@
 <section id="founder" aria-labelledby="founder-h" hidden>
   <div class="wrap">
     <div class="founder">
-      <img id="founder-photo" src="" alt="Preston Whitty, founder of VW Media">
+      <div class="founder-photos">
+        <figure>
+          <img id="founder-photo" src="" alt="Preston Whitty, founder of VW Media">
+          <figcaption>Preston Whitty</figcaption>
+        </figure>
+        <figure id="founder-fig-2" hidden>
+          <img id="founder-photo-2" src="" alt="Patrick Viau, founder of VW Media">
+          <figcaption>Patrick Viau</figcaption>
+        </figure>
+      </div>
       <div>
-        <h3 id="founder-h">The person behind the system.</h3>
-        <p>I'm Preston Whitty. I build appointment systems exclusively for solar companies — because the installers doing the best work are usually the ones losing the most deals to follow-up that stops at voicemail number one. I keep my client list small so every build gets my full attention, and my own number is on this page. Text it — see how fast you hear back.</p>
-        <p class="sig">— Preston</p>
+        <h3 id="founder-h">The people behind the system.</h3>
+        <p>We're Preston Whitty and Patrick Viau — a two-man team building appointment systems exclusively for solar companies, because the installers doing the best work are usually the ones losing the most deals to follow-up that stops at voicemail number one. We keep the client list small so every build gets our full attention, and Preston's own number is on this page. Text it — see how fast you hear back.</p>
+        <p class="sig">— Preston &amp; Patrick</p>
       </div>
     </div>
   </div>
@@ -773,15 +787,16 @@
     // button in the demo section and swaps out the email-request button.
     demoPhoneNumber: "",
 
-    // Path or URL to the demo audio (mp3). Currently a sampler of the AI
-    // voices (generated 2026-07-30). When a real recorded client call exists
-    // (recorded with permission), swap the file AND update the caption in the
-    // #demo-audio section to say it's a real call.
-    demoAudioSrc: "assets/demo-voices.mp3",
+    // Path or URL to the demo audio (mp3). Empty = section hidden. The AI
+    // voice sampler was removed 2026-08-13; when a real recorded client call
+    // exists (recorded with permission), add the file back AND update the
+    // caption in the #demo-audio section to say it's a real call.
+    demoAudioSrc: "",
 
-    // Path or URL to your photo, e.g. "assets/preston.jpg".
-    // Shows the whole founder section.
+    // Paths or URLs to the founder photos. founderPhotoSrc shows the whole
+    // founder section; founderPhoto2Src adds the second photo beside it.
     founderPhotoSrc: "assets/preston-headshot.jpg",
+    founderPhoto2Src: "assets/patrick-headshot.jpg",
 
     // Your GoHighLevel calendar permalink, e.g.
     // "https://api.leadconnectorhq.com/widget/booking/yflLNC3pfB".
@@ -808,6 +823,10 @@
     if (c.founderPhotoSrc) {
       document.getElementById('founder-photo').src = c.founderPhotoSrc;
       document.getElementById('founder').hidden = false;
+    }
+    if (c.founderPhoto2Src) {
+      document.getElementById('founder-photo-2').src = c.founderPhoto2Src;
+      document.getElementById('founder-fig-2').hidden = false;
     }
     if (c.ghlCalendarUrl) {
       var slot = document.getElementById('calendar-embed');
