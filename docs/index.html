@@ -324,6 +324,27 @@
   .calendar-slot p{color:var(--muted);font-size:15px;margin-bottom:22px}
 
   /* footer */
+  /* booking modal */
+  .modal{
+    position:fixed;inset:0;z-index:100;display:none;
+    align-items:center;justify-content:center;padding:20px;
+    background:rgba(10,10,11,.82);backdrop-filter:blur(5px);
+  }
+  .modal.open{display:flex}
+  .modal-box{
+    background:#fff;border-radius:12px;position:relative;overflow:hidden;
+    width:min(780px,100%);height:min(740px,92vh);
+    box-shadow:0 30px 90px rgba(0,0,0,.6);
+  }
+  .modal-box iframe{width:100%;height:100%;border:none;display:block}
+  .modal-close{
+    position:absolute;top:8px;right:8px;z-index:2;
+    width:34px;height:34px;border-radius:50%;border:none;cursor:pointer;
+    background:#0A0A0B;color:#F1D77E;font-size:18px;line-height:1;
+  }
+  .book-alt{font-size:13.5px;color:var(--muted);margin-top:16px}
+  .book-alt a{color:var(--muted);text-decoration:underline}
+
   footer{border-top:1px solid var(--hairline);padding:56px 0 40px}
   .foot-grid{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-start}
   .foot-brand{display:flex;align-items:center;gap:12px}
@@ -745,10 +766,11 @@
          link. Set the calendar accent color to #D4AF37 in GHL so it matches the page. -->
     <div class="calendar-slot" id="calendar-fallback">
       <p>Five numbers, two minutes — your audit comes back within 48 hours.</p>
-      <a class="btn btn-gold" href="mailto:preston@retapmedia.com?subject=Free%2048-hour%20database%20audit&body=Hi%20Preston%2C%20run%20the%20audit%20on%20our%20database.%0ACompany%3A%20%0ALeads%20in%20our%20CRM%20(rough)%3A%20%0AAverage%20cost%20per%20lead%3A%20%0AClose%20rate%20on%20sat%20appointments%3A%20%0AAverage%20install%20value%3A%20%0ACRM%20we%20use%3A%20">Start My Free Audit</a>
-      <p style="font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:14px;letter-spacing:.04em">Or call: <a href="tel:+13212157267">(321) 215-7267</a></p>
+      <a class="btn btn-gold" id="cal-open" href="#" hidden>Book My Audit Call</a>
+      <a class="btn btn-ghost" href="tel:+13212157267" style="margin-left:10px">Call (321) 215-7267</a>
+      <a class="btn btn-gold" id="audit-mailto" href="mailto:preston@retapmedia.com?subject=Free%2048-hour%20database%20audit&body=Hi%20Preston%2C%20run%20the%20audit%20on%20our%20database.%0ACompany%3A%20%0ALeads%20in%20our%20CRM%20(rough)%3A%20%0AAverage%20cost%20per%20lead%3A%20%0AClose%20rate%20on%20sat%20appointments%3A%20%0AAverage%20install%20value%3A%20%0ACRM%20we%20use%3A%20">Start My Free Audit</a>
+      <p class="book-alt" id="book-alt" hidden>Prefer email? <a href="mailto:preston@retapmedia.com?subject=Free%2048-hour%20database%20audit&body=Hi%20Preston%2C%20run%20the%20audit%20on%20our%20database.%0ACompany%3A%20%0ALeads%20in%20our%20CRM%20(rough)%3A%20%0AAverage%20cost%20per%20lead%3A%20%0AClose%20rate%20on%20sat%20appointments%3A%20%0AAverage%20install%20value%3A%20%0ACRM%20we%20use%3A%20">Start the audit by email</a>.</p>
     </div>
-    <div id="calendar-embed" hidden style="max-width:860px;margin:0 auto"></div>
   </div>
 </section>
 
@@ -776,6 +798,13 @@
     </p>
   </div>
 </footer>
+
+<div class="modal" id="cal-modal" role="dialog" aria-modal="true" aria-label="Book your audit call">
+  <div class="modal-box">
+    <button class="modal-close" id="cal-close" aria-label="Close">×</button>
+    <iframe id="cal-frame" title="Book your audit call"></iframe>
+  </div>
+</div>
 
 <script>
   /* ==========================================================================
@@ -830,14 +859,29 @@
       document.getElementById('founder-fig-2').hidden = false;
     }
     if (c.ghlCalendarUrl) {
-      var slot = document.getElementById('calendar-embed');
-      var frame = document.createElement('iframe');
-      frame.src = c.ghlCalendarUrl;
-      frame.style.cssText = 'width:100%;height:720px;border:none;border-radius:8px;background:transparent';
-      frame.title = 'Book a strategy call';
-      slot.appendChild(frame);
-      slot.hidden = false;
-      document.getElementById('calendar-fallback').hidden = true;
+      /* two-button step: Book (popup with the white GHL widget) + Call.
+         Iframe loads on first open only. */
+      var modal = document.getElementById('cal-modal');
+      var frame = document.getElementById('cal-frame');
+      var openBtn = document.getElementById('cal-open');
+      var loaded = false;
+      function openModal(e){
+        if (e) e.preventDefault();
+        if (!loaded) { frame.src = c.ghlCalendarUrl; loaded = true; }
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal(){
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+      openBtn.hidden = false;
+      openBtn.addEventListener('click', openModal);
+      document.getElementById('cal-close').addEventListener('click', closeModal);
+      modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
+      document.getElementById('audit-mailto').hidden = true;
+      document.getElementById('book-alt').hidden = false;
     }
     if (c.caseStudies.length) {
       var grid = document.getElementById('case-grid');
