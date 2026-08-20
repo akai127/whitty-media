@@ -49,6 +49,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   body{
     background:var(--ink);
     color:var(--body);
@@ -59,6 +60,12 @@
   }
   ::selection{background:var(--gold);color:var(--ink)}
   a{color:var(--gold);text-decoration:none}
+  /* Links sitting inside running text need a cue beyond colour (WCAG 1.4.1).
+     Buttons and nav links are exempt — shape and position identify them. */
+  .legal a,.book-alt a,.faq details p a,
+  .foot-brand a[href^="mailto"],.foot-brand a[href^="tel"]{text-decoration:underline;text-underline-offset:2px}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{position:fixed;left:24px;top:12px;z-index:200;background:var(--gold);color:#151102;padding:10px 16px;border-radius:4px;font-weight:600}
   a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
   img,svg{max-width:100%}
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
@@ -121,7 +128,7 @@
     background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.35);border-radius:8px;
     padding:10px 14px;margin-top:14px;font-size:13.5px;color:var(--gold-light);font-weight:600;
   }
-  .callcard-note{font-family:var(--mono);font-size:10.5px;color:rgba(156,150,138,.6);margin-top:10px;text-align:right;letter-spacing:.06em}
+  .callcard-note{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:10px;text-align:right;letter-spacing:.06em}
 
   /* anything gated behind the CONTENT config */
   [hidden]{display:none !important}
@@ -152,7 +159,7 @@
   .stat-num{font-family:var(--mono);font-size:34px;font-weight:500;color:var(--gold-light);line-height:1}
   .stat-num.ember{color:var(--ember)}
   .stat-label{font-size:13.5px;color:var(--muted);margin-top:10px;line-height:1.45}
-  .stat-src{font-family:var(--mono);font-size:10.5px;color:rgba(156,150,138,.55);display:block;margin-top:8px;letter-spacing:.06em}
+  .stat-src{font-family:var(--mono);font-size:10.5px;color:var(--muted);display:block;margin-top:8px;letter-spacing:.06em}
 
   /* ---------- sections ---------- */
   section{padding:96px 0}
@@ -206,7 +213,7 @@
   .mrow.total{background:rgba(212,175,55,.08)}
   .mrow.total .v{color:var(--gold-light);font-size:clamp(26px,3.4vw,40px)}
   .mrow.total .k{color:var(--body)}
-  .calc-note{font-family:var(--mono);font-size:11px;color:rgba(156,150,138,.6);margin-top:16px;letter-spacing:.05em;line-height:1.7}
+  .calc-note{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:16px;letter-spacing:.05em;line-height:1.7}
 
   /* system */
   .system{background:var(--panel);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
@@ -243,7 +250,7 @@
   .founder-photos figure{margin:0;text-align:center}
   .founder-photos figcaption{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:8px;letter-spacing:.08em}
   .founder-photos figure[hidden]{display:none}
-  .founder h3{font-family:var(--display);font-weight:500;font-size:24px;color:#F5F2E9;margin-bottom:12px}
+  .founder h2{font-family:var(--display);font-weight:500;font-size:24px;color:#F5F2E9;margin-bottom:12px}
   .founder p{color:var(--muted);font-size:16px}
   .founder .sig{font-family:var(--display);font-style:italic;color:var(--gold);font-size:20px;margin-top:14px}
 
@@ -288,7 +295,9 @@
   /* fit */
   .fit{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .fit-col{background:var(--panel);border-radius:6px;padding:34px 30px;border:1px solid rgba(212,175,55,.1)}
-  .fit-col.no{opacity:.75}
+  /* De-emphasise with a recessed panel, not opacity — dimming the whole
+     subtree drags its text under the 4.5:1 contrast floor. */
+  .fit-col.no{background:#0F0F0E}
   .fit-col h3{font-family:var(--mono);font-size:13px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px}
   .fit-col.yes h3{color:var(--gold)}
   .fit-col.no h3{color:var(--muted)}
@@ -352,7 +361,7 @@
   .foot-links{display:flex;gap:22px;font-size:14px}
   .foot-links a{color:var(--muted)}
   .foot-links a:hover{color:var(--gold-light)}
-  .legal{margin-top:36px;font-size:12px;color:rgba(156,150,138,.6);line-height:1.7;max-width:820px}
+  .legal{margin-top:36px;font-size:12px;color:var(--muted);line-height:1.7;max-width:820px}
   .legal strong{color:rgba(156,150,138,.85)}
 
   /* reveal on scroll */
@@ -389,6 +398,7 @@
 </style>
 </head>
 <body>
+<a class="skip" href="#top">Skip to content</a>
 
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
@@ -522,7 +532,7 @@
           <input id="inDeal" type="number" value="28000" min="0" step="1000" inputmode="numeric">
         </div>
       </div>
-      <div class="math-rows">
+      <div class="math-rows" role="status" aria-live="polite" aria-atomic="true">
         <div class="mrow"><span class="k">What you already paid for the leads sitting dead in your CRM</span><span class="v ember" id="sunkCost">$200,000</span></div>
         <div class="mrow"><span class="k">Qualified sat appointments per month, once the engine is running</span><span class="v">10</span></div>
         <div class="mrow"><span class="k">× your close rate</span><span class="v" id="mClose">20%</span></div>
@@ -572,12 +582,12 @@
       <p>Unqualified sits waste $23–47k per rep, per year. We count sits, not "bookings" — here's the standard every appointment has to pass.</p>
     </div>
     <div class="checks reveal">
-      <div class="check"><span class="tick">✓</span><p><strong>Verified homeowner</strong> — owner-occupant, decision-maker aware of the appointment.</p></div>
-      <div class="check"><span class="tick">✓</span><p><strong>$100+/month utility bill</strong> — below that, solar rarely pencils. Provider captured.</p></div>
-      <div class="check"><span class="tick">✓</span><p><strong>Stated 600+ credit</strong> — financeable under standard solar loan programs.</p></div>
-      <div class="check"><span class="tick">✓</span><p><strong>Viable roof</strong> — age and shading checked before booking. No blocking HOA.</p></div>
-      <div class="check"><span class="tick">✓</span><p><strong>Confirmed sit on your calendar</strong> — reconfirmed within 24 hours of the appointment.</p></div>
-      <div class="check"><span class="tick x">✗</span><p><strong>No-shows don't count.</strong> They get replaced, not tallied. Every booking comes with its full conversation transcript.</p></div>
+      <div class="check"><span class="tick" aria-hidden="true">✓</span><p><strong>Verified homeowner</strong> — owner-occupant, decision-maker aware of the appointment.</p></div>
+      <div class="check"><span class="tick" aria-hidden="true">✓</span><p><strong>$100+/month utility bill</strong> — below that, solar rarely pencils. Provider captured.</p></div>
+      <div class="check"><span class="tick" aria-hidden="true">✓</span><p><strong>Stated 600+ credit</strong> — financeable under standard solar loan programs.</p></div>
+      <div class="check"><span class="tick" aria-hidden="true">✓</span><p><strong>Viable roof</strong> — age and shading checked before booking. No blocking HOA.</p></div>
+      <div class="check"><span class="tick" aria-hidden="true">✓</span><p><strong>Confirmed sit on your calendar</strong> — reconfirmed within 24 hours of the appointment.</p></div>
+      <div class="check"><span class="tick x" aria-hidden="true">✗</span><p><strong>No-shows don't count.</strong> They get replaced, not tallied. Every booking comes with its full conversation transcript.</p></div>
     </div>
   </div>
 </section>
@@ -610,10 +620,10 @@
       <p>TCPA exposure runs $500–$1,500 per message. Compliance isn't our fine print — it's the product.</p>
     </div>
     <div class="checks reveal">
-      <div class="check"><span class="tick">✓</span><p><strong>Registered numbers.</strong> All texting runs on A2P 10DLC numbers registered to <em>your</em> business — carriers block unregistered traffic outright. Registration is part of onboarding, not your problem.</p></div>
-      <div class="check"><span class="tick">✓</span><p><strong>First-party leads only.</strong> We message people who gave <em>your company</em> their information. Never purchased or shared lists under your name.</p></div>
-      <div class="check"><span class="tick">✓</span><p><strong>Instant opt-out.</strong> Any revocation signal — STOP, "don't text me," anything reasonable — suppresses in real time, ahead of current FCC rules.</p></div>
-      <div class="check"><span class="tick">✓</span><p><strong>Quiet hours + audit log.</strong> Sender identified in every thread, no off-hours messaging, and a full consent and message log that you own.</p></div>
+      <div class="check"><span class="tick" aria-hidden="true">✓</span><p><strong>Registered numbers.</strong> All texting runs on A2P 10DLC numbers registered to <em>your</em> business — carriers block unregistered traffic outright. Registration is part of onboarding, not your problem.</p></div>
+      <div class="check"><span class="tick" aria-hidden="true">✓</span><p><strong>First-party leads only.</strong> We message people who gave <em>your company</em> their information. Never purchased or shared lists under your name.</p></div>
+      <div class="check"><span class="tick" aria-hidden="true">✓</span><p><strong>Instant opt-out.</strong> Any revocation signal — STOP, "don't text me," anything reasonable — suppresses in real time, ahead of current FCC rules.</p></div>
+      <div class="check"><span class="tick" aria-hidden="true">✓</span><p><strong>Quiet hours + audit log.</strong> Sender identified in every thread, no off-hours messaging, and a full consent and message log that you own.</p></div>
     </div>
   </div>
 </section>
@@ -644,7 +654,7 @@
         </figure>
       </div>
       <div>
-        <h3 id="founder-h">The people behind the system.</h3>
+        <h2 id="founder-h">The people behind the system.</h2>
         <p>We're Preston Whitty and Patrick Viau — a two-man team building appointment systems exclusively for solar companies, because the installers doing the best work are usually the ones losing the most deals to follow-up that stops at voicemail number one. We keep the client list small so every build gets our full attention — and when you request the audit, time how fast you hear back. That speed is the product.</p>
         <p class="sig">— Preston &amp; Patrick</p>
       </div>
@@ -766,7 +776,7 @@
          link. Set the calendar accent color to #D4AF37 in GHL so it matches the page. -->
     <div class="calendar-slot" id="calendar-fallback">
       <p>Five numbers, two minutes — your audit comes back within 48 hours.</p>
-      <a class="btn btn-gold" id="cal-open" href="#" hidden>Book My Audit Call</a>
+      <button class="btn btn-gold" id="cal-open" type="button" hidden>Book My Audit Call</button>
       <a class="btn btn-ghost" href="tel:+13212157267" style="margin-left:10px">Call (321) 215-7267</a>
       <a class="btn btn-gold" id="audit-mailto" href="mailto:preston@retapmedia.com?subject=Free%2048-hour%20database%20audit&body=Hi%20Preston%2C%20run%20the%20audit%20on%20our%20database.%0ACompany%3A%20%0ALeads%20in%20our%20CRM%20(rough)%3A%20%0AAverage%20cost%20per%20lead%3A%20%0AClose%20rate%20on%20sat%20appointments%3A%20%0AAverage%20install%20value%3A%20%0ACRM%20we%20use%3A%20">Start My Free Audit</a>
       <p class="book-alt" id="book-alt" hidden>Prefer email? <a href="mailto:preston@retapmedia.com?subject=Free%2048-hour%20database%20audit&body=Hi%20Preston%2C%20run%20the%20audit%20on%20our%20database.%0ACompany%3A%20%0ALeads%20in%20our%20CRM%20(rough)%3A%20%0AAverage%20cost%20per%20lead%3A%20%0AClose%20rate%20on%20sat%20appointments%3A%20%0AAverage%20install%20value%3A%20%0ACRM%20we%20use%3A%20">Start the audit by email</a>.</p>
@@ -781,7 +791,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <img src="assets/retap-mark.png" alt="Retap Media logo" style="width:44px;height:44px">
+        <img src="assets/retap-mark.png" alt="" style="width:44px;height:44px">
         <div>
           <a href="https://retapmedia.com/" style="color:inherit"><span class="brand-name">RETAP&nbsp;<b>MEDIA</b></span></a><br>
           <a href="mailto:preston@retapmedia.com" style="font-size:13px;color:var(--muted)">preston@retapmedia.com</a> · <a href="tel:+13212157267" style="font-size:13px;color:var(--muted)">(321) 215-7267</a>
@@ -865,15 +875,33 @@
       var frame = document.getElementById('cal-frame');
       var openBtn = document.getElementById('cal-open');
       var loaded = false;
+      var lastFocus = null;
       function openModal(e){
         if (e) e.preventDefault();
         if (!loaded) { frame.src = c.ghlCalendarUrl; loaded = true; }
+        lastFocus = document.activeElement;
         modal.classList.add('open');
         document.body.style.overflow = 'hidden';
+        /* Move focus into the dialog and keep it there — otherwise Tab walks
+           the page behind the overlay and the booking flow is unusable by
+           keyboard. Focus returns to the trigger on close. */
+        document.getElementById('cal-close').focus();
+        modal.addEventListener('keydown', trapFocus);
+      }
+      function trapFocus(e){
+        if (e.key !== 'Tab') return;
+        var f = modal.querySelectorAll('button, iframe, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
       }
       function closeModal(){
+        if (!modal.classList.contains('open')) return;
         modal.classList.remove('open');
         document.body.style.overflow = '';
+        modal.removeEventListener('keydown', trapFocus);
+        if (lastFocus) lastFocus.focus();
       }
       openBtn.hidden = false;
       openBtn.addEventListener('click', openModal);
